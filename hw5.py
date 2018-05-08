@@ -23,8 +23,7 @@ def main(filename):
         for word in words:
             # then, remove (strip) unwanted punctuations from every word
             # "dream." => "dream"
-            for p in string.punctuation:
-                word = word.strip(p)
+            word = word.strip(string.punctuation)
             # check if word is not empty
             if word:
                 # append the word to "all_words" list
@@ -38,7 +37,7 @@ def main(filename):
     # a,12345
     # I,23456
     # ...
-    with open("wordcount.csv" , "w",newline="") as csv_file:
+    with open("wordcount.csv" , "w" , newline="") as csv_file:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csv_file)
         # write table head
@@ -51,7 +50,7 @@ def main(filename):
         writer = json.dump(counter.most_common() , json_file)
 
     # BONUS: dump to a pickle file named "wordcount.pkl"
-    with open("wordcount.pkl", "wb") as pkl_file:
+    with open("wordcount.pkl" , "wb") as pkl_file:
         writer = pickle.dump(counter.most_common(), pkl_file)
     # hint: dump the Counter object directly
 
